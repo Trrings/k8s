@@ -1,4 +1,4 @@
-piVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: config-server
@@ -16,7 +16,7 @@ spec:
       - name: config-server
         image: ${DOCKER_REGISTRY}/config-server:${VERSION}
         ports:
-        - containerPort: 8888
+        - containerPort: 8091
 ---
 apiVersion: v1
 kind: Service
@@ -26,5 +26,5 @@ spec:
   selector:
     app: config-server
   ports:
-  - port: 8888
-    targetPort: 8888
+  - port: 8091
+    targetPort: 8091
